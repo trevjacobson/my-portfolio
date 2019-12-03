@@ -1,4 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
+
+import pdfFile from './Resume.pdf';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export default class Timeline extends Component {
   render() {
@@ -15,14 +20,32 @@ export default class Timeline extends Component {
             <div className="row">
               <div className="col-md-12">
                 <div className="timeline-centered">
+                <article className="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+                    <div className="timeline-entry-inner">
+                      <div className="timeline-icon color-2">
+                        <i className="icon-pen2" />
+                      </div>
+                      <div className="timeline-label">
+                        <h2>Software Development Engineer - Kaseya <span>2018-2020</span></h2>
+                        <p>After graduating from UNLV, joined Kaseya as a FTE working on the AuthAnvil product.
+                          
+                        </p>
+                      </div>
+                    </div>
+                  </article>
                   <article className="timeline-entry animate-box" data-animate-effect="fadeInLeft">
                     <div className="timeline-entry-inner">
                       <div className="timeline-icon color-3">
                         <i className="icon-pen2" />
                       </div>
                       <div className="timeline-label">
-                        <h2>Internship at Juniper <span>2019-present</span></h2>
-                        <p>I recently have joined the Juniper Networs as a Software Developer-Intern in the DevOps team. My major part of the work has been into the field of creating sustainable and flexible CI/CD (Continuous Integration & Continuous Development) pipelines which enables developers at Juniper to do rapid development. I am also exploring the role of container technology like Docker and container-orchrastation technologies like K8s, Swarm to create industry standard production environments.</p>
+                        <h2>Software Development Engineer Intern - Kaseya <span>2017</span></h2>
+                        <p>I joined Kaseya during my Senior year of school as they were a Las Vegas based company, allowing me to work and attend my final year. 
+                          Initially worked on Natural Language Processing (NLP) application that would serve as an assistant to get your initial updates when starting the day.
+                          Transitioned into working on the company's Microservice architecture proof of concept. Allowed me to dive heavily into the newest technologies at the time
+                          with Docker coming into extreme popularity and .Net Core in the late stages of beta. Also led a node.js project that would allow internal developers to generate a templated
+                          microservice project hooked up with standardized components for integrated authentication, logging, swagger API documentation, server configuration, and database configuration and the ability to instantly deploy it all with Docker.
+                        </p>
                       </div>
                     </div>
                   </article>
@@ -32,8 +55,11 @@ export default class Timeline extends Component {
                         <i className="icon-pen2" />
                       </div>
                       <div className="timeline-label">
-                        <h2>Undergraduation at DAIICT<span>2015-2019</span></h2>
-                        <p>I am pursuing my under-graduation studies with major in I.C.T.(Information & Communication Technology). I have taken courses like DSA, OOPs, Computer Networks, IOT, Web-Data Management over the years and have better understanding of these subjects.I have also been part of S.B.G.(Student Body Govenance) scince my first year of college.</p>
+                        <h2>Software Engineering Intern - Verzion <span>2016</span></h2>
+                        <p>Worked as an intern on the Android version of the MyFios mobile application. 
+                          While there the team was working on porting the application from a browser app embedded into an Android app into a native Android experience.
+                          Primarily focused on developing the UI for the application in which google material design was heavily leveraged for design patterns.
+                          Required me to crash course learn Android/Java in order to meaningfully contribute to the project. Work involved peer coding, code reviews, standups, unit testing code, requirements meetings,</p>
                       </div>
                     </div>
                   </article>
@@ -43,8 +69,12 @@ export default class Timeline extends Component {
                         <i className="icon-pen2" />
                       </div>
                       <div className="timeline-label">
-                        <h2>Primary and Higher Education <span>2003-2015</span></h2>
-                        <p>I have completed my higher secondary education with major subjects as Physics,Chemistry & Maths with 91 merit. During my time at school, I have developed interest in solving complex problems of the fundamental physics which helped me to improve my understanding of any problem and also my mathematical skills to actually solve the problems.</p> 
+                        <h2>B.S. in Computer Science - University of Nevada, Las Vegas <span>2012-2017</span></h2>
+                        <p>Began college with the intent of following in my father's footsteps and getting my degree in Accounting. 
+                          After my first two semesters I found I kind of hated accounting and took an intro to CS class since I 
+                          had always liked technology, but had never been introduced to any sort of programming in my life. It was 
+                          an easy choice from that semester onwards that I would pursue a degree in Computer Science. Ended with a 
+                          GPA of 3.5 and made the Dean's list 6 semesters with the Department of Engineering.</p> 
                       </div>
                     </div>
                   </article>
@@ -54,6 +84,16 @@ export default class Timeline extends Component {
                       </div>
                     </div>
                   </article>
+                </div>
+              </div>
+              <div className="col-md-12">
+                <div className="timeline-centered">
+                <Document
+                  file={pdfFile}
+                  onLoadError={console.error}
+                >
+                  <Page pageNumber={1} />
+                </Document>
                 </div>
               </div>
             </div>
